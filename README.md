@@ -1,7 +1,7 @@
 # Future cursors
 This is an xcursor theme, that was forked and ported to Nix. The fork is from [Future-cursor](https://github.com/yeyushengfan258/Future-cursors?tab=readme-ov-file) x-cursor theme, which itself was inspired by macOS and based on [capitaine-cursors](https://github.com/keeferrourke/capitaine-cursors).
 
-## Installation [UNRECOMMENDED]
+## Installation
 
 Add the input to your nix flake:
 
@@ -29,7 +29,27 @@ outputs =
     ...
   }:
 ```
-```
+
+## Usage
+
+You can add the input by importing inputs and grabbing the package:
+
+```nix
+{ config, pkgs, inputs, ... }: # <-- Make sure 'inputs' is listed here
+
+{
+  # ... your config ...
+
+  environment.systemPackages = [
+    inputs.future-cursor.packages.${pkgs.system}.default
+  ];
+
+  # How I configure it for my niri, optional.
+  environment.sessionVariables = {
+    XCURSOR_THEME = "Future-cyan-cursors";
+    XCURSOR_SIZE = "24"; 
+  };
+}
 ```
 
 ## Imperative Installation [UNRECOMMENDED]
