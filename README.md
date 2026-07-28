@@ -1,8 +1,40 @@
 # Future cursors
-This is an x-cursor theme inspired by macOS and
-based on [capitaine-cursors](https://github.com/keeferrourke/capitaine-cursors).
+This is an xcursor theme, that was forked and ported to Nix. The fork is from [Future-cursor](https://github.com/yeyushengfan258/Future-cursors?tab=readme-ov-file) x-cursor theme, which itself was inspired by macOS and based on [capitaine-cursors](https://github.com/keeferrourke/capitaine-cursors).
 
-## Installation
+## Installation [UNRECOMMENDED]
+
+Add the input to your nix flake:
+
+```nix
+inputs = {
+    # ... your existing inputs ...
+
+    future-cursor = {
+      url = "github:StarTheSus/Nix-Future-cursors";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+```
+
+And reflect it in your outputs:
+
+```nix
+outputs =
+  inputs@{
+    self,
+    nixpkgs,
+    # ... your existing outputs ...
+
+    future-cursor,
+    ...
+  }:
+```
+```
+```
+
+## Imperative Installation [UNRECOMMENDED]
+**Note**: This section is left as is from the original repository, nix is not designed to work imperatively, it is expected to always configure it declaratively. This is kept for those who need it.
+
 To install the cursor theme simply copy the compiled theme to your icons
 directory. For local user installation:
 
@@ -29,6 +61,14 @@ run:
 
 This will generate the pixmaps and appropriate aliases.
 The freshly compiled cursor theme will be located in `dist/`
+
+If you update the flake, don't forget to update the lock file:
+
+```nix
+nix flake lock
+```
+```
+```
 
 ## Preview
 ![Future](preview.png)
