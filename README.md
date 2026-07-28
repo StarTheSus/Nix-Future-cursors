@@ -90,6 +90,10 @@ rm -rf src/svg
 This will generate the pixmaps and appropriate aliases.
 The freshly compiled cursor theme will be located in `dist/`
 
+```bash
+mv dist output/cyan  # Or whatever color you compiled
+```
+
 If you update the flake, don't forget to update the lock file:
 
 ```bash
