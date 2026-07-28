@@ -42,6 +42,7 @@ You can add the input by importing inputs and grabbing the package:
 
   environment.systemPackages = [
     inputs.future-cursors.packages.${pkgs.system}.default
+    # Replace `default` with any desired color available (orange | cyan)
   ];
 
   # How I configure it for my niri, optional.
