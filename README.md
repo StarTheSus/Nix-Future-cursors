@@ -9,7 +9,7 @@ Add the input to your nix flake:
 inputs = {
     # ... your existing inputs ...
 
-    future-cursor = {
+    future-cursors = {
       url = "github:StarTheSus/Nix-Future-cursors";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -25,7 +25,7 @@ outputs =
     nixpkgs,
     # ... your existing outputs ...
 
-    future-cursor,
+    future-cursors,
     ...
   }:
 ```
@@ -41,7 +41,8 @@ You can add the input by importing inputs and grabbing the package:
   # ... your config ...
 
   environment.systemPackages = [
-    inputs.future-cursor.packages.${pkgs.system}.default
+    inputs.future-cursors.packages.${pkgs.system}.default
+
   ];
 
   # How I configure it for my niri, optional.
