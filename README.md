@@ -42,13 +42,13 @@ You can add the input by importing inputs and grabbing the package:
 
   environment.systemPackages = [
     inputs.future-cursors.packages.${pkgs.system}.default
-
   ];
 
   # How I configure it for my niri, optional.
-  environment.sessionVariables = {
+  environment.variables = {
     XCURSOR_THEME = "Future-cyan-cursors";
-    XCURSOR_SIZE = "24"; 
+    XCURSOR_SIZE = "24";
+    XCURSOR_PATH = "/run/current-system/sw/share/icons";
   };
 }
 ```
