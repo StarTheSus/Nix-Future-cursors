@@ -95,8 +95,6 @@ If you update the flake, don't forget to update the lock file:
 ```bash
 nix flake lock
 ```
-```
-```
 
 ## Preview
 ![Future](preview.png)
