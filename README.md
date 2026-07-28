@@ -59,13 +59,13 @@ You can add the input by importing inputs and grabbing the package:
 To install the cursor theme simply copy the compiled theme to your icons
 directory. For local user installation:
 
-```
+```bash
 ./install.sh
 ```
 
 For system-wide installation for all users:
 
-```
+```bash
 sudo ./install.sh
 ```
 
@@ -76,8 +76,14 @@ You'll find everything you need to build and modify this cursor set in
 the `src/` directory. To build the xcursor theme from the SVG source
 run:
 
-```
+```bash
+nix-shell  # Don't forget to edit it if you prefer bash
+
+cp -r src/svg-cyan src/svg  # Replace "cyan" with any color you like under src
+
 ./build.sh
+
+rm -rf src/svg
 ```
 
 This will generate the pixmaps and appropriate aliases.
@@ -85,7 +91,7 @@ The freshly compiled cursor theme will be located in `dist/`
 
 If you update the flake, don't forget to update the lock file:
 
-```nix
+```bash
 nix flake lock
 ```
 ```
